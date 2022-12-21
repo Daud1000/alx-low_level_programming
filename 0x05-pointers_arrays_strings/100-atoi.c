@@ -1,30 +1,38 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
- * main - check the code
+ * _atoi - convert a string representation of an integer to an integer
  *
- * Return: Always 0.
+ * @s: string possibly containing an integer
+ *
+ * Return: first integer in string
  */
-int main(void)
+int _atoi(char *s)
 {
-    int nb;
+	int signs = 1;
+	unsigned int sum = 0;
+	int final = 0;
 
-    nb = _atoi("98");
-    printf("%d\n", nb);
-    nb = _atoi("-402");
-    printf("%d\n", nb);
-    nb = _atoi("          ------++++++-----+++++--98");
-    printf("%d\n", nb);
-    nb = _atoi("214748364");
-    printf("%d\n", nb);
-    nb = _atoi("0");
-    printf("%d\n", nb);
-    nb = _atoi("Suite 402");
-    printf("%d\n", nb);
-    nb = _atoi("         +      +    -    -98 Battery Street; San Francisco, CA 94111 - USA             ");
-    printf("%d\n", nb);
-    nb = _atoi("---++++ -++ Sui - te -   402 #cisfun :)");
-    printf("%d\n", nb);
-    return (0);
+
+	for (; *s != '\0'; s++)
+	{
+		if (*s == '-')
+		signs *= -1;
+		else if (*s >= '0' && *s <= '9')
+		break;
+	}
+	while (*s >= '0' && *s <= '9')
+	{
+		sum *= 10;
+		sum += *s - '0';
+		s++;
+	}
+
+
+	if (signs == -1)
+		final = -sum;
+	else
+		final = sum;
+
+	return (final);
 }
+
