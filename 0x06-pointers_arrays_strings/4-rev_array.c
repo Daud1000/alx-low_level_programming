@@ -12,6 +12,7 @@
 
 void print_line(char *c, int s, int l)
 {
+
 	int j, k;
 	for (j = 0; j <= 9; j++)
 	{
@@ -40,6 +41,7 @@ putchar('.');
  */
 void print_buffer(char *b, int size)
 {
+
 	int i;
 
 	for (i = 0; i <= (size - 1) / 10 && size; i++)
